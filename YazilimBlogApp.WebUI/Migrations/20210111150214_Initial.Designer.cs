@@ -10,7 +10,7 @@ using YazilimBlogApp.DataAccessLayer.Concrete.EfCore;
 namespace YazilimBlogApp.WebUI.Migrations
 {
     [DbContext(typeof(YazilimBlogContext))]
-    [Migration("20191215144614_Initial")]
+    [Migration("20210111150214_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
