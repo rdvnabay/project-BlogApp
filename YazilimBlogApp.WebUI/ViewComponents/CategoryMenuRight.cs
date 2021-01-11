@@ -19,10 +19,13 @@ namespace YazilimBlogApp.WebUI.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            var model = new BlogCategoryViewModel();
-            model.Categories = _categoryService.GetAll();
-            //model.CountCategory = _blogService.GetAll().Where(x => x.CategoryId == 1).Count();
-            return View(_categoryService.GetAll());
+            var model = new BlogCategoryViewModel()
+            {
+                Categories = _categoryService.GetAll(),
+                CountCategory = _blogService.GetAll().Where(x => x.CategoryId == 0).Count()
+            };
+            
+            return View(model);
         }
     }
 }

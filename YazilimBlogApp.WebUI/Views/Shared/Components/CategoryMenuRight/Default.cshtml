@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Category>
+﻿@model BlogCategoryViewModel
 <div class="row">
     <div class="col-md-12 mb-3">
         <!-- Widget: user widget style 2 -->
@@ -14,11 +14,16 @@
             </div>
             <div class="card-footer p-0">
                 <ul class="nav flex-column">
-                    @foreach (var category in Model)
+                    @foreach (var category in Model.Categories)
                     {
                     <li class="nav-item">
                         <a asp-controller="Home" asp-action="Category" asp-route-id="@category.Id" class="nav-link">
-                            @category.Name <span class="float-right badge bg-info">1</span>
+                            @category.Name <span class="float-right badge bg-info">
+                           @foreach (var item in Model.CountCategory.ToString())
+                           {
+                               @item
+                           }
+                            </span>
                         </a>
                     </li>
                     }
