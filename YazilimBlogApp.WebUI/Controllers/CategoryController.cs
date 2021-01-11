@@ -10,17 +10,30 @@ namespace YazilimBlogApp.WebUI.Controllers
 {
     public class CategoryController : Controller
     {
+        #region Fields
         private ICategoryService _categoryService;
+        #endregion
+
+        #region Constructor
         public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
+        #endregion
+
+        //Actions
+        #region Index
         public IActionResult Index()
         {
             return View();
         }
+        #endregion
 
+        #region List
         public IActionResult List() => View(_categoryService.GetAll());
+        #endregion
+
+        #region Create
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -33,7 +46,9 @@ namespace YazilimBlogApp.WebUI.Controllers
             }
             return View(entity);
         }
+        #endregion
 
+        #region Edit
         public IActionResult Edit(int id) => View(_categoryService.GetById(id));
         [HttpPost]
         public IActionResult Edit(Category entity)
@@ -48,13 +63,14 @@ namespace YazilimBlogApp.WebUI.Controllers
                 return View(entity);
             }
         }
+        #endregion
 
+        #region Delete
         public IActionResult Delete(Category entity)
         {
             _categoryService.Delete(_categoryService.GetById(entity.Id));
             return RedirectToAction("List");
         }
-            
-      
+        #endregion
     }
 }

@@ -23,8 +23,7 @@ namespace YazilimBlogApp.WebUI.ViewComponents
             {
                 Categories = _categoryService.GetAll(),
                 CountCategory = _blogService.GetAll().Where(x => x.CategoryId == 0).Count()
-            };
-            
+            };     
             return View(model);
         }
     }

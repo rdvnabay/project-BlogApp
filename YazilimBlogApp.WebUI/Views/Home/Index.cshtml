@@ -9,7 +9,7 @@
         <div class="col-9">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-9">
                         <div class="container-fluid">
                             <div class="row">
                                 @foreach (var blog in Model)
@@ -33,13 +33,13 @@
                                                 <h3 class="card-title"><strong>@blog.Title</strong> </h3>
 
                                                 <p class="card-text">@blog.Description</p>
-                                                <a asp-controller="Home" asp-action="Details" asp-route-id="@blog.Id" class="btn btn-sm btn-outline-info">Details</a>
+                                                <a asp-controller="Home" asp-action="Details" asp-route-id="@blog.Id" class="btn btn-sm btn-outline-info">Devamını Oku</a>
                                             </div>
-                                            <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                                            @*<div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                                                 <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
                                                 <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
                                                 <span class="float-right text-muted">45 likes - 2 comments</span>
-                                            </div>
+                                            </div>*@
                                         </div>
                                     </div>
                                 }

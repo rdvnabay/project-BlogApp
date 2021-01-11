@@ -10,13 +10,21 @@ namespace YazilimBlogApp.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        #region Fields
         private IBlogService _blogService;
         private ICategoryService _categoryService;
+        #endregion
+
+        #region Constructor
         public HomeController(IBlogService blogService, ICategoryService categoryService)
         {
             _blogService = blogService;
             _categoryService = categoryService;
         }
+        #endregion
+
+        //Actions
+        #region Index
         public IActionResult Index(int id,string search)
         {
             if (!string.IsNullOrEmpty(search))
@@ -29,15 +37,20 @@ namespace YazilimBlogApp.WebUI.Controllers
            
             return View(_blogService.GetAll().Where(x=>x.IsHome && x.IsApproved));
         }
+        #endregion
 
+        #region Category
         public IActionResult Category(int id)
         {
             return View(_blogService.GetAll().Where(x => x.CategoryId == id && x.IsApproved));
         }
+        #endregion
 
+        #region Details
         public IActionResult Details(int id)
         {
             return View(_blogService.GetById(id));
         }
+        #endregion
     }
 }

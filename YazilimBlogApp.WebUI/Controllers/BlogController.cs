@@ -13,27 +13,42 @@ namespace YazilimBlogApp.WebUI.Controllers
 {
     public class BlogController : Controller
     {
+        #region Fields
         private IBlogService _blogService;
         private ICategoryService _categoryService;
+        #endregion
+
+        #region Constructor
         public BlogController(IBlogService blogService, ICategoryService categoryService)
         {
             _blogService = blogService;
             _categoryService = categoryService;
         }
+        #endregion
+
+        #region Methods
         public void ListCategory()
         {
             ViewBag.ListCategory = new SelectList(_categoryService.GetAll(), "Id", "Name");
         }
+        #endregion
+
+        //Actions
+        #region Index
         public IActionResult Index()
         {
             return View();
         }
+        #endregion
 
+        #region List
         public IActionResult List()
         {
             return View(_blogService.GetAll());
         }
+        #endregion
 
+        #region Create
         public IActionResult Create()
         {
             ListCategory();
@@ -59,7 +74,9 @@ namespace YazilimBlogApp.WebUI.Controllers
             }
             return View(entity);
         }
+        #endregion
 
+        #region Edit
         public IActionResult Edit(int id)
         {
             ListCategory();
@@ -79,16 +96,21 @@ namespace YazilimBlogApp.WebUI.Controllers
                 return View(entity);
             }  
         }
+        #endregion
 
+        #region Delete
         public IActionResult Delete(Blog entity)
         {
             _blogService.Delete(_blogService.GetById(entity.Id));
             return RedirectToAction("List");
         }
+        #endregion
 
+        #region Details
         public IActionResult Details(int id)
         {
             return View(_blogService.GetById(id));
-        }   
+        }
+        #endregion
     }
 }   
