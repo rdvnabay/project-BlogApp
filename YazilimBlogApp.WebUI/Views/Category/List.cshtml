@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/Admin/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Blog List</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead class="bg-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            
+                            <td>@category.Name</td>
+                            
+                            <td width="5%" class="bg-light">
+                                <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id"
+                                   class="btn btn-sm btn-warning btn-outline-dark">
+                                    Edit
+                                </a>
+                            </td>
+                            <td width="5%" class="bg-light">
+                                <a asp-controller="Category" asp-action="Details" asp-route-id="@category.Id"
+                                   class="btn btn-sm btn-primary btn-outline-dark">
+                                    Details
+                                </a>
+                            </td>
+                            <td width="5%" class="bg-light">
+                                <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id"
+                                   class="btn btn-sm btn-danger btn-outline-dark">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer clearfix">
+            <ul class="pagination pagination-sm m-0 float-right">
+                <li class="page-item"><a class="page-link" href="#">«</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">»</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

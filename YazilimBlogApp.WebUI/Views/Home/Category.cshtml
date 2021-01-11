@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            @{ if (Model.Count() == 0)
+                {
+                    <div class="card card-default">
+
+                        <div class="card-body">
+                            <div class="alert alert-warning alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h5><i class="icon fas fa-exclamation-triangle"></i> Uyarı!</h5>
+                                Herhangi bir kayıt bulunamadı.
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                }
+                else
+                {
+                    @foreach (var blog in Model)
+                    {
+                        <div class="card card-widget my-3">
+                            <div class="card-header">
+
+                                <div class="user-block">
+                                    <img class="img-circle card-img" src="~/img/Pyhton3.png" alt="User Image">
+                                    <span class="username"><a href="#">Rıdvan Abay</a></span>
+                                    <span class="description">Shared publicly - 7:30 PM Today</span>
+                                    <span class="description">   @await Component.InvokeAsync("GetCategoryName", blog.CategoryId)</span>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title"><strong>@blog.Title</strong> </h3>
+
+                                <p class="card-text">@blog.Description</p>
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@blog.Id" class="btn btn-sm btn-outline-info">Details</a>
+                            </div>
+                            <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                <span class="float-right text-muted">45 likes - 2 comments</span>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>
+

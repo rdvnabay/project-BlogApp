@@ -1,0 +1,20 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Admin/_LayoutAdmin.cshtml";
+}
+
+<div class="card card-primary card-outline">
+    <div class="card-body">
+        <p class="card-text">@Model.Title</p> 
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text">@Html.Raw(Model.Content)</p>
+        <div>
+            <img src="~/img/@Model.Image" alt="@Model.Title"/>
+        </div>
+        <p class="card-footer text-muted">
+            @Model.Date
+        </p>
+    </div>
+</div>
+

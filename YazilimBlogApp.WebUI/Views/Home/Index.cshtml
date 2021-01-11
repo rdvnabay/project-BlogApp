@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="container-fluid">
+                            <div class="row">
+                                @foreach (var blog in Model)
+                                {
+                                    <div class="col-12">
+                                        <div class="card card-widget">
+                                            <div class="card-header">
+
+                                                <div class="user-block">
+                                                    <img class="img-circle card-img" src="~/img/@blog.Image" alt="User Image">
+                                                    <span class="username"><a href="#">Rıdvan Abay</a></span>
+                                                    <span class="description">@blog.Date.ToShortDateString()</span>
+                                                    <span class="description">
+                                                        @await Component.InvokeAsync("GetCategoryName", blog.CategoryId)
+                                                    </span>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title"><strong>@blog.Title</strong> </h3>
+
+                                                <p class="card-text">@blog.Description</p>
+                                                <a asp-controller="Home" asp-action="Details" asp-route-id="@blog.Id" class="btn btn-sm btn-outline-info">Details</a>
+                                            </div>
+                                            <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                                <span class="float-right text-muted">45 likes - 2 comments</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            @await Component.InvokeAsync("CategoryMenuRight")
+        </div>
+    </div>
+</div>
+
+

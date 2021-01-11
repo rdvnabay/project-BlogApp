@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/css/blog-home.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body>
+        <!-- Navigation -->
+        <partial name="_Navbar" />
+        @*<partial name="_NavbarMenu" />*@
+        @await Component.InvokeAsync("CategoryMenu")
+
+        <!-- Page Content -->
+        @RenderBody()
+
+        <!-- Footer -->
+        <partial name="_Footer" />
+    <script src="/modules/jquery/dist/jquery.js"></script>
+    <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

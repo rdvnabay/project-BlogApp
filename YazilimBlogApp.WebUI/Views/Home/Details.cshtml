@@ -1,0 +1,39 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <div class="card card-widget my-3">
+                <div class="card-header">
+
+                    <div class="user-block">
+                        <img class="img-circle card-img" src="~/img/Pyhton3.png" alt="User Image">
+                        <span class="username"><a href="#">Rıdvan Abay</a></span>
+                        <span class="description">Shared publicly - 7:30 PM Today</span>
+                        <span class="description">   @await Component.InvokeAsync("GetCategoryName", Model.CategoryId)</span>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><strong>@Model.Title</strong> </h3>
+
+                    <p class="card-text">@Model.Description</p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                    <span class="float-right text-muted">45 likes - 2 comments</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+          
+        </div>
+      
+    </div>
+</div>
+
+

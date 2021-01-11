@@ -1,0 +1,62 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Admin/_LayoutAdmin.cshtml";
+}
+@section ckEditors{
+    <script src="/modules/ckeditor/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace("Content");
+    </script>
+}
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Image" />
+    <div class="container">
+        <div class="card card-primary card-outline">
+            <div class="card-body">
+
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="IsHome" />
+                    <label asp-for="IsHome" class="form-check-label"></label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="IsApproved" />
+                    <label asp-for="IsApproved" class="form-check-label"></label>
+                </div>
+
+                <div class="card-text form-group">
+                    <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.ListCategory"></select>
+                </div>
+
+                <div class="card-text form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" />
+                </div>
+
+                <div class="card-text form-group">
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" class="form-control" />
+                </div>
+
+                <div class="card-text form-group">
+                    <img src="~/img/@Model.Image" alt="@Model.Image" width="160" />
+                    <input type="file" name="file" id="file" class="form-control" />
+                </div>
+
+                <div class="card-text form-group">
+                    <label asp-for="Date"></label>
+                    <input asp-for="Date" class="form-control" />
+                </div>
+
+                <div class="card-text form-group">
+                    <label asp-for="Content"></label>
+                    <input asp-for="Content" class="form-control" />
+                </div>
+
+                <input type="submit" value="Update" class="btn btn-success text-right" />
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Category>
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <!-- Widget: user widget style 2 -->
+        <div class="card card-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-warning">
+                <div class="widget-user-image">
+                    <img class="img-circle elevation-2" src="~/img/Pyhton3.png" alt="User Avatar">
+                </div>
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">Nadia Carmichael</h3>
+                <h5 class="widget-user-desc">Lead Developer</h5>
+            </div>
+            <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                    @foreach (var category in Model)
+                    {
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Category" asp-route-id="@category.Id" class="nav-link">
+                            @category.Name <span class="float-right badge bg-info">1</span>
+                        </a>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
