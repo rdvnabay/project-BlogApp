@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using YazilimBlogApp.BusinessLayer.Abstract;
-using YazilimBlogApp.Entities;
+using YazilimBlogApp.Entities.Concrete;
 
 namespace YazilimBlogApp.WebUI.Controllers
 {

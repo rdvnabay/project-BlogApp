@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YazilimBlogApp.Entities;
+using YazilimBlogApp.Entities.Concrete;
 
 namespace YazilimBlogApp.WebUI.ViewModels
 {

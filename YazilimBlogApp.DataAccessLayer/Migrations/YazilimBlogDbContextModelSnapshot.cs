@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using YazilimBlogApp.DataAccessLayer.Concrete.EfCore;
+using YazilimBlogApp.DataAccessLayer.Concrete.EfCore.EntityFramework;
 
-namespace YazilimBlogApp.WebUI.Migrations
+namespace YazilimBlogApp.DataAccessLayer.Migrations
 {
-    [DbContext(typeof(YazilimBlogContext))]
-    [Migration("20210111150214_Initial")]
-    partial class Initial
+    [DbContext(typeof(YazilimBlogDbContext))]
+    partial class YazilimBlogDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +19,7 @@ namespace YazilimBlogApp.WebUI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("YazilimBlogApp.Entities.Blog", b =>
+            modelBuilder.Entity("YazilimBlogApp.Entities.Concrete.Blog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +59,7 @@ namespace YazilimBlogApp.WebUI.Migrations
                     b.ToTable("Blogs");
                 });
 
-            modelBuilder.Entity("YazilimBlogApp.Entities.Category", b =>
+            modelBuilder.Entity("YazilimBlogApp.Entities.Concrete.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,9 +75,9 @@ namespace YazilimBlogApp.WebUI.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("YazilimBlogApp.Entities.Blog", b =>
+            modelBuilder.Entity("YazilimBlogApp.Entities.Concrete.Blog", b =>
                 {
-                    b.HasOne("YazilimBlogApp.Entities.Category", "Category")
+                    b.HasOne("YazilimBlogApp.Entities.Concrete.Category", "Category")
                         .WithMany("Blogs")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

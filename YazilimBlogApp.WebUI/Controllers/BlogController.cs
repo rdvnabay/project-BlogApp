@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using YazilimBlogApp.BusinessLayer.Abstract;
-using YazilimBlogApp.Entities;
+using YazilimBlogApp.Entities.Concrete;
 
 namespace YazilimBlogApp.WebUI.Controllers
 {

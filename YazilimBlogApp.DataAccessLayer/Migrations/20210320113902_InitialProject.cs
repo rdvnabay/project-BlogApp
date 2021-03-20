@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace YazilimBlogApp.WebUI.Migrations
+namespace YazilimBlogApp.DataAccessLayer.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialProject : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

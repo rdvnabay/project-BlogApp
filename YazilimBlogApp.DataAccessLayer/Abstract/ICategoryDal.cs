@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using YazilimBlogApp.Entities;
+using YazilimBlogApp.Core.DataAccess;
+using YazilimBlogApp.Entities.Concrete;
 
 namespace YazilimBlogApp.DataAccessLayer.Abstract
 {
-    public interface ICategoryDal:IRepository<Category>
+    public interface ICategoryDal:IEntityRepository<Category>
     {
     }
 }

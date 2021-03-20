@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using YazilimBlogApp.Core;
 
-namespace YazilimBlogApp.Entities
+namespace YazilimBlogApp.Entities.Concrete
 {
-    public class Blog
+    public class Blog:IEntity
     {
         public int Id { get; set; }
         [Required(ErrorMessage ="Başlık alanı boş geçilemez!")]

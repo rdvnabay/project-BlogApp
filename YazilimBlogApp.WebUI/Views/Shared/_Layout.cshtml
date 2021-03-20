@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="/modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    @*<link href="/modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="~/css/adminlte.min.css" rel="stylesheet" />
     <link href="~/css/blog-home.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
@@ -12,17 +13,21 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body>
-        <!-- Navigation -->
-        <partial name="_Navbar" />
-        @*<partial name="_NavbarMenu" />*@
-        @await Component.InvokeAsync("CategoryMenu")
+    <!-- Navigation -->
+    <partial name="_Navbar" />
+    @*<partial name="_NavbarMenu" />*@
+    @await Component.InvokeAsync("CategoryMenu")
 
-        <!-- Page Content -->
-        @RenderBody()
+    <!-- Page Content -->
+    @RenderBody()
 
-        <!-- Footer -->
-        <partial name="_Footer" />
-    <script src="/modules/jquery/dist/jquery.js"></script>
-    <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Footer -->
+    <partial name="_Footer" />
+    @*<script src="/modules/jquery/dist/jquery.js"></script>*@
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    @*<script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>*@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

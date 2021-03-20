@@ -15,6 +15,7 @@ using YazilimBlogApp.BusinessLayer.Abstract;
 using YazilimBlogApp.BusinessLayer.Concrete;
 using YazilimBlogApp.DataAccessLayer.Abstract;
 using YazilimBlogApp.DataAccessLayer.Concrete.EfCore;
+using YazilimBlogApp.DataAccessLayer.Concrete.EfCore.EntityFramework;
 
 namespace YazilimBlogApp.WebUI
 {
@@ -30,8 +31,8 @@ namespace YazilimBlogApp.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddDbContext<YazilimBlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                b=>b.MigrationsAssembly("YazilimBlogApp.WebUI")));
+            //services.AddDbContext<YazilimBlogDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+            //    b=>b.MigrationsAssembly("YazilimBlogApp.WebUI")));
 
             services.AddTransient<ICategoryDal, EFCategoryDal>();
             services.AddTransient<ICategoryService, CategoryManager>();
@@ -48,12 +49,12 @@ namespace YazilimBlogApp.WebUI
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
-                RequestPath = "/modules"
-            });
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(
+            //    Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
+            //    RequestPath = "/modules"
+            //});
             app.UseStatusCodePages();
             app.UseRouting();
 

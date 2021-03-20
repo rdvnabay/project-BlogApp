@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using YazilimBlogApp.BusinessLayer.Abstract;
 using YazilimBlogApp.DataAccessLayer.Abstract;
-using YazilimBlogApp.Entities;
+using YazilimBlogApp.Entities.Concrete;
 
 namespace YazilimBlogApp.BusinessLayer.Concrete
 {
@@ -31,7 +31,7 @@ namespace YazilimBlogApp.BusinessLayer.Concrete
 
         public Category GetById(int id)
         {
-            return _categoryDal.GetById(id);
+            return _categoryDal.Get(c=>c.Id==id);
         }
 
         public void Update(Category entity)
