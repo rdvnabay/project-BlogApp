@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YazilimBlogApp.DataAccessLayer.Concrete.EfCore.EntityFramework;
 
-namespace YazilimBlogApp.DataAccessLayer.Migrations
+namespace DataAccess.Migrations
 {
     [DbContext(typeof(YazilimBlogDbContext))]
     partial class YazilimBlogDbContextModelSnapshot : ModelSnapshot

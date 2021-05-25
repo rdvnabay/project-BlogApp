@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YazilimBlogApp.DataAccessLayer.Concrete.EfCore.EntityFramework;
 
-namespace YazilimBlogApp.DataAccessLayer.Migrations
+namespace DataAccess.Migrations
 {
     [DbContext(typeof(YazilimBlogDbContext))]
-    [Migration("20210320113902_InitialProject")]
+    [Migration("20210525132839_Initial-Project")]
     partial class InitialProject
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

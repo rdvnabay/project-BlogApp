@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace YazilimBlogApp.DataAccessLayer.Migrations
+namespace DataAccess.Migrations
 {
     public partial class InitialProject : Migration
     {

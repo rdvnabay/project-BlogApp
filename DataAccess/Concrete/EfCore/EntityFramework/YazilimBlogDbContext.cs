@@ -10,7 +10,7 @@ namespace YazilimBlogApp.DataAccessLayer.Concrete.EfCore.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=YazilimBlogAppDb; Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-T7I39GU; Database=YazilimBlogAppDb; Trusted_Connection=true");
         }
 
         public DbSet<Blog> Blogs { get; set; }
