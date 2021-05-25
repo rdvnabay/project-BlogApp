@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using YazilimBlogApp.BusinessLayer.Abstract;
 using YazilimBlogApp.Entities.Concrete;
 
@@ -10,30 +6,16 @@ namespace YazilimBlogApp.WebUI.Controllers
 {
     public class CategoryController : Controller
     {
-        #region Fields
         private ICategoryService _categoryService;
-        #endregion
 
-        #region Constructor
         public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
-        #endregion
 
         //Actions
-        #region Index
-        public IActionResult Index()
-        {
-            return View();
-        }
-        #endregion
+        public IActionResult List() => View(_categoryService.GetAll().Data);
 
-        #region List
-        public IActionResult List() => View(_categoryService.GetAll());
-        #endregion
-
-        #region Create
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -46,10 +28,8 @@ namespace YazilimBlogApp.WebUI.Controllers
             }
             return View(entity);
         }
-        #endregion
 
-        #region Edit
-        public IActionResult Edit(int id) => View(_categoryService.GetById(id));
+        public IActionResult Edit(int id) => View(_categoryService.GetById(id).Data);
         [HttpPost]
         public IActionResult Edit(Category entity)
         {
@@ -63,14 +43,11 @@ namespace YazilimBlogApp.WebUI.Controllers
                 return View(entity);
             }
         }
-        #endregion
 
-        #region Delete
         public IActionResult Delete(Category entity)
         {
-            _categoryService.Delete(_categoryService.GetById(entity.Id));
+            _categoryService.Delete(_categoryService.GetById(entity.Id).Data);
             return RedirectToAction("List");
         }
-        #endregion
     }
 }

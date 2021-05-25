@@ -13,42 +13,32 @@ namespace YazilimBlogApp.WebUI.Controllers
 {
     public class BlogController : Controller
     {
-        #region Fields
         private IBlogService _blogService;
         private ICategoryService _categoryService;
-        #endregion
 
-        #region Constructor
         public BlogController(IBlogService blogService, ICategoryService categoryService)
         {
             _blogService = blogService;
             _categoryService = categoryService;
         }
-        #endregion
 
-        #region Methods
+        //Methods
         public void ListCategory()
         {
-            ViewBag.ListCategory = new SelectList(_categoryService.GetAll(), "Id", "Name");
+            ViewBag.ListCategory = new SelectList(_categoryService.GetAll().Data, "Id", "Name");
         }
-        #endregion
 
         //Actions
-        #region Index
         public IActionResult Index()
         {
             return View();
         }
-        #endregion
 
-        #region List
         public IActionResult List()
         {
-            return View(_blogService.GetAll());
+            return View(_blogService.GetAll().Data);
         }
-        #endregion
 
-        #region Create
         public IActionResult Create()
         {
             ListCategory();
@@ -74,13 +64,11 @@ namespace YazilimBlogApp.WebUI.Controllers
             }
             return View(entity);
         }
-        #endregion
 
-        #region Edit
         public IActionResult Edit(int id)
         {
             ListCategory();
-            return View(_blogService.GetById(id));
+            return View(_blogService.GetById(id).Data);
         }
 
         [HttpPost]
@@ -96,21 +84,16 @@ namespace YazilimBlogApp.WebUI.Controllers
                 return View(entity);
             }  
         }
-        #endregion
 
-        #region Delete
         public IActionResult Delete(Blog entity)
         {
-            _blogService.Delete(_blogService.GetById(entity.Id));
+            _blogService.Delete(_blogService.GetById(entity.Id).Data);
             return RedirectToAction("List");
         }
-        #endregion
 
-        #region Details
         public IActionResult Details(int id)
         {
-            return View(_blogService.GetById(id));
+            return View(_blogService.GetById(id).Data);
         }
-        #endregion
     }
 }   
