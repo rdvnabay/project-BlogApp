@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Core.Utilities.Results;
 using System.Collections.Generic;
-using System.Text;
 using YazilimBlogApp.Entities.Concrete;
 
 namespace YazilimBlogApp.BusinessLayer.Abstract
 {
-    public interface ICategoryService:IRepositoryService<Category>
+    public interface ICategoryService
     {
+        IDataResult<IEnumerable<Category>> GetAll();
+        IDataResult<Category>GetById(int id);
+        IResult Add(Category category);
+        IResult Update(Category category);
+        IResult Delete(Category category);
     }
 }

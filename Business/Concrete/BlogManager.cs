@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Utilities.Results;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using YazilimBlogApp.BusinessLayer.Abstract;
@@ -15,29 +16,34 @@ namespace YazilimBlogApp.BusinessLayer.Concrete
             _blogDal = blogDal;
         }
         
-        public void Add(Blog entity)
+        public IResult Add(Blog entity)
         {
             _blogDal.Add(entity);
+            return new SuccessResult();
         }
 
-        public void Delete(Blog entity)
+        public IResult Delete(Blog entity)
         {
             _blogDal.Delete(entity);
+            return new SuccessResult();
         }
 
-        public IEnumerable<Blog> GetAll()
+        public IDataResult<IEnumerable<Blog>> GetAll()
         {
-            return _blogDal.GetAll();
+            var data = _blogDal.GetAll();
+            return new SuccessDataResult<IEnumerable<Blog>>(data);
         }
 
-        public Blog GetById(int id)
+        public IDataResult<Blog> GetById(int id)
         {
-            return _blogDal.Get(b=>b.Id==id);
+            var data = _blogDal.Get(b => b.Id == id);
+            return new SuccessDataResult<Blog>(data);
         }
 
-        public void Update(Blog entity)
+        public IResult Update(Blog entity)
         {
             _blogDal.Update(entity);
+            return new SuccessResult();
         }
     }
 }

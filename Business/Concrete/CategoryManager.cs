@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Utilities.Results;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using YazilimBlogApp.BusinessLayer.Abstract;
@@ -14,29 +15,34 @@ namespace YazilimBlogApp.BusinessLayer.Concrete
         {
             _categoryDal = categoryDal;
         }
-        public void Add(Category entity)
+        public IResult Add(Category entity)
         {
             _categoryDal.Add(entity);
+            return new SuccessResult();
         }
 
-        public void Delete(Category entity)
+        public IResult Delete(Category entity)
         {
             _categoryDal.Delete(entity);
+            return new SuccessResult();
         }
 
-        public IEnumerable<Category> GetAll()
+        public IDataResult<IEnumerable<Category>> GetAll()
+        { 
+            var data = _categoryDal.GetAll();
+            return new SuccessDataResult<IEnumerable<Category>>(data);
+        }
+
+        public IDataResult<Category> GetById(int id)
         {
-            return _categoryDal.GetAll();
+            var data= _categoryDal.Get(c => c.Id == id);
+            return new SuccessDataResult<Category>(data);
         }
 
-        public Category GetById(int id)
-        {
-            return _categoryDal.Get(c=>c.Id==id);
-        }
-
-        public void Update(Category entity)
+        public IResult Update(Category entity)
         {
             _categoryDal.Update(entity);
+            return new SuccessResult();
         }
     }
 }
