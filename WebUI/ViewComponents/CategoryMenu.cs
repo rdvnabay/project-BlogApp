@@ -18,7 +18,7 @@ namespace YazilimBlogApp.WebUI.ViewComponents
         {
 
             ViewBag.ActiveCategory = RouteData.Values["id"];
-            return View(_categoryService.GetAll());
+            return View(_categoryService.GetAll().Data);
         }
     }
    

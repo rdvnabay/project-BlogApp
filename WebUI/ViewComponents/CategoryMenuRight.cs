@@ -21,8 +21,8 @@ namespace YazilimBlogApp.WebUI.ViewComponents
         {
             var model = new BlogCategoryViewModel()
             {
-                Categories = _categoryService.GetAll(),
-                CountCategory = _blogService.GetAll().Where(x => x.CategoryId == 0).Count()
+                Categories = _categoryService.GetAll().Data,
+                CountCategory = _blogService.GetAll().Data.Where(x => x.CategoryId == 0).Count()
             };     
             return View(model);
         }

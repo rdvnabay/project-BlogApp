@@ -17,7 +17,7 @@ namespace YazilimBlogApp.WebUI.ViewComponents
 
         public IViewComponentResult Invoke(string search)
         {
-            var querySearch = _blogService.GetAll().Where(x => x.Title.Contains(search));
+            var querySearch = _blogService.GetAll().Data.Where(x => x.Title.Contains(search));
             return View(querySearch);
         }
     }

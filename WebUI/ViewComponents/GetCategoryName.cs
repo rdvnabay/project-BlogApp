@@ -17,7 +17,7 @@ namespace YazilimBlogApp.WebUI.ViewComponents
 
         public IViewComponentResult Invoke(int id)
         {
-            return View(_categoryService.GetById(id));
+            return View(_categoryService.GetById(id).Data);
         }
     }
 }
