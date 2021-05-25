@@ -31,9 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YazilimBlogApp.BusinessLayer\YazilimBlogApp.BusinessLayer.csproj" />
-    <ProjectReference Include="..\YazilimBlogApp.DataAccessLayer\YazilimBlogApp.DataAccessLayer.csproj" />
-    <ProjectReference Include="..\YazilimBlogApp.Entities\YazilimBlogApp.Entities.csproj" />
+    <ProjectReference Include="..\Business\Business.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
 </Project>
